@@ -1,0 +1,1 @@
+# WMA-module-for-temperature-sensors
