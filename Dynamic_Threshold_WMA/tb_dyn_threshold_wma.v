@@ -16,7 +16,7 @@ module tb_WMA_Calculator;
 	wire [7:0] T2;
 	wire [7:0] WMA1;
     
-    //calculator module instance
+    	//calculator module instance
 	WMA_Calculator uut (
 		.x(x),
 		.WMA0(WMA0),
@@ -45,41 +45,40 @@ module tb_WMA_Calculator;
 		x = 8'd100; WMA0 = 8'd50; #10;
 		
 		// edge case: both inputs zero, lowest possible delta (P=32)
-        threshold_select = 2'b00;
-        x = 8'd0; WMA0 = 8'd0; #10;
-
-        // edge case: both inputs maxed
-        threshold_select = 2'b00;
-        x = 8'd255; WMA0 = 8'd255; #10;
-
-        // identical mid values
-        threshold_select = 2'b01;
-        x = 8'd128; WMA0 = 8'd128; #10;
-
-        // sharp increase
-        threshold_select = 2'b01;
-        x = 8'd200; WMA0 = 8'd50; #10;
-
-        // sharp decrease
-        threshold_select = 2'b10;
-        x = 8'd30; WMA0 = 8'd200; #10;
-
-        // alternating around threshold range
-        threshold_select = 2'b10;
-        x = 8'd100; WMA0 = 8'd120; #10;
-        x = 8'd130; WMA0 = 8'd110; #10;
-        x = 8'd110; WMA0 = 8'd130; #10;
-        x = 8'd120; WMA0 = 8'd100; #10;
-
-        // just below and just above threshold boundaries
-        threshold_select = 2'b00;
-        x = 8'd127; WMA0 = 8'd128; #10;
-        x = 8'd129; WMA0 = 8'd128; #10;
-
-        // very small difference (testing low delta sensitivity)
-        threshold_select = 2'b10;
-        x = 8'd100; WMA0 = 8'd101; #10;
-        
+	        threshold_select = 2'b00;
+	        x = 8'd0; WMA0 = 8'd0; #10;
+	
+	        // edge case: both inputs maxed
+	        threshold_select = 2'b00;
+	        x = 8'd255; WMA0 = 8'd255; #10;
+	
+	        // identical mid values
+	        threshold_select = 2'b01;
+	        x = 8'd128; WMA0 = 8'd128; #10;
+	
+	        // sharp increase
+	        threshold_select = 2'b01;
+	        x = 8'd200; WMA0 = 8'd50; #10;
+	
+	        // sharp decrease
+	        threshold_select = 2'b10;
+	        x = 8'd30; WMA0 = 8'd200; #10;
+	
+	        // alternating around threshold range
+	        threshold_select = 2'b10;
+	        x = 8'd100; WMA0 = 8'd120; #10;
+	        x = 8'd130; WMA0 = 8'd110; #10;
+	        x = 8'd110; WMA0 = 8'd130; #10;
+	        x = 8'd120; WMA0 = 8'd100; #10;
+	
+	        // just below and just above threshold boundaries
+	        threshold_select = 2'b00;
+	        x = 8'd127; WMA0 = 8'd128; #10;
+	        x = 8'd129; WMA0 = 8'd128; #10;
+	
+	        // very small difference (testing low delta sensitivity)
+	        threshold_select = 2'b10;
+	        x = 8'd100; WMA0 = 8'd101; #10;
         
 		// test with threshold_select = 2'b11 (should default to P=32)
 		threshold_select = 2'b11;
