@@ -1,3 +1,5 @@
+`timescale 1ns/1ps
+
 //WMA Calculator Main Module
 
 //Authors: Kate Bailey, Reese Milhone
