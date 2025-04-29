@@ -6,7 +6,7 @@ This repository contains the Verilog code for a Weighted Moving Average (WMA) mo
 ### Repository Structure
 
 #### WMA_Calculator
-wma_calculator.v - Verilog file implementing the Weighted Moving Average (WMA) calculator.<br>
+<strong>wma_calculator.v<strong/> - Verilog file implementing the Weighted Moving Average (WMA) calculator.<br>
 tb_wma_calculator.v - Verilog testbench file with test cases and outputs for WMA calculator.<br>
 main.v - Verilog file to run testbench file.
 
